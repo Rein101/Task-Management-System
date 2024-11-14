@@ -97,15 +97,17 @@ The system implements error handling throughout:
 
 2. **File Operations**
    ```python
+   # error handling in the task_manager.py
    try:
        with open(filename, 'r', newline='\n') as file:
            # File operations
    
    except FileNotFoundError:
        print(f"Error: The file '{filename}' does not exist.")
-   
    except (ValueError, IndexError):
        print("Error: Invalid data format in the CSV file.")
+    except Exception as e:
+            print(f"An unexpected error occurred: {e}")
    
    ```
 
